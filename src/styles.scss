@@ -1,0 +1,16 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+html,
+body {
+    font-family: "Inter", serif !important;
+}
+
+.Structure {
+    &-content {
+        width: min(90%, 1800px);
+        margin:auto;
+    }
+}

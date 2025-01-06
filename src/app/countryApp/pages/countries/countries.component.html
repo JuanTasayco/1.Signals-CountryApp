@@ -11,7 +11,11 @@
         </div>
 
         <div class="Countries-result">
-            <app-results-countries></app-results-countries>
+            @if(countries()){
+                <app-results-countries [countries]="countries()"></app-results-countries>
+            }@else {
+                <div>Cargando países</div>
+            }
         </div>
     </div>
 

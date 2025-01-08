@@ -13,7 +13,6 @@ export class CardComponent {
   country = input<Country>();
 
   redirectCard(country: any) {
-    console.log(country.ccn3);
     this.router.navigate(["countries", country.ccn3])
   }
 

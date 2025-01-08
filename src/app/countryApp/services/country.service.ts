@@ -23,5 +23,12 @@ export class CountryService {
     return this.httpClient.get<Country[]>(`${this.url}region/${region}`)
   }
 
+  getCountryByCode(codes: string) {
+    return this.httpClient.get<Country[]>(`${this.url}alpha`, {
+      params: { codes }
+    });
+
+  }
+
   constructor(private httpClient: HttpClient) { }
 }

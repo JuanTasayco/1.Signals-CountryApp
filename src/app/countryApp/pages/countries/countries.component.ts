@@ -13,13 +13,24 @@ import { Country } from '../../interfaces/country.interface';
 })
 export class CountriesComponent implements OnInit {
 
-  countries = signal<Country[] | null>(null);
+  countries = signal<Country[] | []>([]);
 
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.countryService.getAllCoutries().subscribe(response => {
-      this.countries.set(response.slice(0, 10));
+      this.countries.set(response.slice(0, 14));
     })
   }
+
+  onTextSearch(country: any) {
+    this.countryService.getCountryByName(country).subscribe(response => {
+      this.countries.set(response.slice(0, 14));
+    })
+  }
+
+  onTextFilter(region: any) {
+    console.log(region);
+  }
+
 }

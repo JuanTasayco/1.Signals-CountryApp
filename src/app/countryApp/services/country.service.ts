@@ -15,6 +15,9 @@ export class CountryService {
     return this.httpClient.get<Country[]>(`${this.url}all`);
   }
 
+  getCountryByName(country: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(`${this.url}name/${country}`)
+  }
 
   constructor(private httpClient: HttpClient) { }
 }

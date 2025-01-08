@@ -11,6 +11,6 @@ export class CardComponent implements OnInit {
 
   country = input<Country>();
   ngOnInit(): void {
-    console.log(this.country())
+  
   }
 }

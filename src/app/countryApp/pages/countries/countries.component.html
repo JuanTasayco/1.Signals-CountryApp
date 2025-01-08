@@ -2,19 +2,19 @@
     <div class="Countries-content Structure-content">
         <div class="Countries-searchings text-center sm:flex sm:items-center sm:justify-between">
             <div class="Countries-search">
-                <app-search></app-search>
+                <app-search (emitEventText)="onTextSearch($event)"></app-search>
             </div>
 
             <div class="Countries-filter">
-                <app-filter></app-filter>
+                <app-filter (emitRegionEvent)="onTextFilter($event)"></app-filter>
             </div>
         </div>
 
         <div class="Countries-result mt-5">
             @if(countries()){
-                <app-results-countries [countries]="countries()"></app-results-countries>
+            <app-results-countries [countries]="countries()"></app-results-countries>
             }@else {
-                <div>Cargando países</div>
+            <div>Cargando países</div>
             }
         </div>
     </div>

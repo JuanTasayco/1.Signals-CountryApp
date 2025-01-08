@@ -1,6 +1,21 @@
 <div class="Card border rounded-lg overflow-hidden">
     <img [src]="country()?.flags?.png" alt="" class="Card-img ">
-    <div class=" h-[4rem] sm:h-[10rem]">
-        {{country()?.name?.common}}
+    @if(country()){
+    <div class=" h-[4rem] sm:h-[10rem] flex items-center ">
+
+        <ul class="max-w-md  space-y-1 text-gray-500 list-none list-inside dark:text-gray-400 px-[1.5rem]">
+            <h2> {{country()?.name?.common}}</h2>
+            <li>
+                Population: {{country()?.population}}
+            </li>
+            <li>
+                Región: {{country()?.region}}
+            </li>
+            <li>
+                Capital: {{country()!.capital[0]}}
+            </li>
+        </ul>
+
     </div>
+    }
 </div>

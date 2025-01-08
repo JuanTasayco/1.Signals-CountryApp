@@ -19,5 +19,9 @@ export class CountryService {
     return this.httpClient.get<Country[]>(`${this.url}name/${country}`)
   }
 
+  getCountriesByRegion(region: string): Observable<Country[]> {
+    return this.httpClient.get<Country[]>(`${this.url}region/${region}`)
+  }
+
   constructor(private httpClient: HttpClient) { }
 }

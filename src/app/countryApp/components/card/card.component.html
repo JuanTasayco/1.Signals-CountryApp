@@ -1,4 +1,4 @@
-<div class="Card border rounded-lg overflow-hidden">
+<div class="Card border rounded-lg overflow-hidden" style="cursor:pointer" (click)="redirectCard(country())">
     <img [src]="country()?.flags?.png" alt="" class="Card-img ">
     @if(country()){
     <div class=" h-[4rem] sm:h-[10rem] flex items-center ">
@@ -12,7 +12,7 @@
                 Región: {{country()?.region}}
             </li>
             <li>
-                Capital: {{country()!.capital[0]}}
+                Capital: {{country()!.capital[0] || country()?.capital}}
             </li>
         </ul>
 

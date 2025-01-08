@@ -26,8 +26,12 @@ export class FilterComponent implements OnInit {
       name: "Europa",
       value: "europe"
     }, {
-      name: "Antartic",
-      value: "antartic"
+      name: "Oceania",
+      value: "oceania"
+    },
+    {
+      name: "Antartida",
+      value: "antarctic"
     }
   ]
 
@@ -35,7 +39,9 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.regionSelectInput.valueChanges.subscribe((value) => {
-      this.emitRegionEvent.emit(value);
+      if (value.trim().length > 0) {
+        this.emitRegionEvent.emit(value);
+      }
     })
   }
 }

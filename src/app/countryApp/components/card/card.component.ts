@@ -1,5 +1,6 @@
 import { Component, input, OnInit } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -7,10 +8,15 @@ import { Country } from '../../interfaces/country.interface';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   country = input<Country>();
-  ngOnInit(): void {
-  
+
+  redirectCard(country: any) {
+    console.log(country.ccn3);
+    this.router.navigate(["countries", country.ccn3])
   }
+
+
+  constructor(private router: Router) { }
 }

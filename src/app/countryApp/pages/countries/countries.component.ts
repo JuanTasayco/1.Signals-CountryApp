@@ -30,7 +30,9 @@ export class CountriesComponent implements OnInit {
   }
 
   onTextFilter(region: any) {
-    console.log(region);
+    this.countryService.getCountriesByRegion(region).subscribe(response => {
+      this.countries.set(response.slice(0, 14))
+    })
   }
 
 }

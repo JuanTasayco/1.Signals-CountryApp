@@ -1,11 +1,11 @@
 <div class="Countries dark:bg-gray-800 dark:text-white pt-5">
     <div class="Countries-content Structure-content">
-        <div class="Countries-searchings text-center sm:flex sm:items-center sm:justify-between">
+        <div class="Countries-searchings text-center sm:flex sm:items-center sm:justify-between ">
             <div class="Countries-search">
                 <app-search (emitEventText)="onTextSearch($event)"></app-search>
             </div>
 
-            <div class="Countries-filter">
+            <div class="Countries-filter mt-5 sm:mt-auto">
                 <app-filter (emitRegionEvent)="onTextFilter($event)"></app-filter>
             </div>
         </div>

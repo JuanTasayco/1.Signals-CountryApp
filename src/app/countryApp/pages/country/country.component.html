@@ -1,16 +1,18 @@
-<div class="Country">
+<div class="Country dark:bg-gray-800">
     <div class="Country-content Structure-content">
         <div></div>
         @if(country()){
-        <div class="Country-section md:flex">
-            <div class="Country-first" style="border:2px solid red">
-                <div class="Country-credentials Credentials">
-                    <div class="Credentials-secImg">
+        <div class="Country-section p-5 md:flex w-100 md:px-[5rem] md:py-[2rem] border rounded-lg">
+            <div class="Country-first md:w-[60%]">
+                <div class="Country-credentials Credentials flex gap-5">
+                    <div class="Credential-secImg">
                         <img class="Credential-img rounded-full" [src]="country()?.flags?.png" alt="image description">
                     </div>
                     <div class="Credentials-descriptions">
                         <div class="Credentials-name flex items-center gap-3">
-                            <p class="md:text-[23px] font-black tracking-normal font-stretch-expanded">Belgica</p>
+                            <p
+                                class="md:text-[23px] font-black tracking-normal font-stretch-expanded dark:text-gray-100">
+                                {{country()?.name?.common}}</p>
                             <span
                                 class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-gray-700 dark:text-gray-300">COUNTRY</span>
                         </div>
@@ -18,11 +20,51 @@
                             class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Moderator</span>
                     </div>
                 </div>
-            </div>
-            <div class="Country-second" style="border:2px solid blue">
+                <div class="Country-descriptions mt-2">
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Native Name:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.name?.common}}</p>
 
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Population:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.population}}</p>
+
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Región:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.region}}</p>
+
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Capital:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.capital}}</p>
+                </div>
+
+                <div class="Country-pills flex gap-2">
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Frontiers:</h2>
+                    @for(border of country()?.borders; track $index){
+                    <span
+                        class="bg-indigo-100 text-indigo-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-indigo-900 dark:text-indigo-300">{{border}}</span>
+
+                    }
+
+                </div>
+            </div>
+            <div class="Country-detail flex-grow">
+                <div class="Country-descriptions mt-2">
+                   
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Top Level Domain:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.name?.common}}</p>
+
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Currencies:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.population}}</p>
+
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Región:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.region}}</p>
+
+                    <h2 class=" text-[18px] font-semibold text-gray-900 dark:text-white">Capital:</h2>
+                    <p class="max-w-md text-gray-600 dark:text-gray-400 mb-3">{{country()?.capital}}</p>
+                </div>
+
+                <button class="px-5 py-2 bg-red-600 rounded-lg text-white"> Back</button>
             </div>
         </div>
+
+
         }
 
     </div>

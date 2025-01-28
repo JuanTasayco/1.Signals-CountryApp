@@ -1,9 +1,16 @@
-<div class="Card border rounded-lg overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700 dark:bg-gray-700" style="cursor:pointer" (click)="redirectCard(country())">
-    <img [src]="country()?.flags?.png" alt="" class="Card-img ">
-    @if(country()){
-    <div class=" h-[4rem] sm:h-[10rem] flex items-center ">
+<div class="Card border rounded-lg overflow-hidden dark:border-gray-700 dark:hover:bg-gray-700 dark:bg-gray-700"
+    style="cursor:pointer" (click)="redirectCard(country())">
 
+    <div class="p-[1rem] rounded-lg">
+        <img [src]="country()?.flags?.png" alt="" class="Card-img rounded-lg">
+    </div>
+
+    @if(country()){
+    <div class=" h-[4rem] sm:h-[10rem] flex">
         <ul class="max-w-md  space-y-1 text-gray-500 list-none list-inside dark:text-white px-[1.5rem]">
+            <span
+                class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-purple-900 dark:text-purple-300">Country</span>
+
             <h2> {{country()?.name?.common}}</h2>
             <li>
                 Population: {{country()?.population}}

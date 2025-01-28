@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, signal } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country.interface';
 
@@ -10,12 +10,12 @@ import { Country } from '../../interfaces/country.interface';
 })
 export class CountryComponent implements OnInit {
   @Input("id") idCountry !: string;
-  country !: Country;
+  country = signal<Country | null>(null);
 
   ngOnInit(): void {
     this.countryService.getCountryByCode(this.idCountry).subscribe(response => {
-      this.country = response[0];
-      console.log(this.country);
+      this.country.set(response[0])
+      console.log(this.country());
     })
   }
 
